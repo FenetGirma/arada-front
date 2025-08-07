@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    /* Updated primary for Leafy Life theme */
+    --primary: 103 30% 54%; /* New primary color */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 120 25% 95%; /* #f0f8f0 - Light green background */
+    --secondary-foreground: 222.2 47.4% 11.2%; /* Dark gray */
+
+    --accent: 210 40% 96.1%; /* Keeping original accent for other components */
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 222.2 47.4% 11.2%;
+
+    --radius: 0.5rem;
+
+    /* New tertiary color */
+    --tertiary: 106 25% 87%; /* #d9e6d5 */
+
+    /* Specific custom colors for unique elements */
+    --leafy-button-green: 123 40% 69%; /* #66bb6a - Green for buttons */
+    --leafy-pot: 180 33% 75%;        /* #a7d9d9 - Light blue/teal for the plant pot */
+    --leafy-social: 0 0% 50%;        /* #808080 - Gray for social media text */
+  }
+ 
+  .dark {
+    --background: 222.2 47.4% 11.2%;
+    --foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --popover: 222.2 47.4% 11.2%;
+    --popover-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --card: 222.2 47.4% 11.2%;
+    --card-foreground: 210 40% 98%;
+
+    /* Dark mode adjustments for Leafy Life theme */
+    --primary: 103 30% 74%; /* Lighter primary for dark mode, adjusted from new primary */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 120 25% 15%; /* Darker secondary for dark mode */
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 217.2 32.6% 17.5%;
+
+    /* New tertiary color for dark mode */
+    --tertiary: 106 25% 70%; /* Darker tertiary for dark mode */
+
+    /* Dark mode adjustments for specific custom colors */
+    --leafy-button-green: 123 40% 79%;
+    --leafy-pot: 180 33% 85%;
+    --leafy-social: 0 0% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
