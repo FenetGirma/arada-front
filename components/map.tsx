@@ -10,11 +10,21 @@ const customIcon = new L.Icon({
 });
 
 type Challenge = {
-  id: string | number;
-  latitude: number;
-  longitude: number;
+  id: string;
   title: string;
-  userId: string | number;
+  description: string;
+  tags?: string[];
+  imageUrl?: string;
+  createdBy?: {
+    id: number;
+    name?: string;
+  };
+  location: { latitude: number; longitude: number }; // support both string & parsed
+  upvotes?: number;
+  points?: number;
+  solutions?: any[];
+  status?: string;
+  date?: string;
 };
 
 interface ImpactMapProps {
@@ -30,21 +40,25 @@ const ImpactMap: React.FC<ImpactMapProps> = ({ challenges }) => {
       style={{ height: "100vh", width: "100%" }}
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      {challenges.map((item) => (
-        <Marker
-          key={item.id}
-          icon={customIcon}
-          position={[item.latitude, item.longitude]}
-        >
-          <map></map>
-          <Popup>
-            <strong>{item.title}</strong>
-            <br />
-            Contributed by user {item.userId}
-          </Popup>
-        </Marker>
-      ))}
-    </MapContainer>
-  );
+      // In ImpactMap.tsx
+      {challenges.map((item) =>
+        item.location &&
+        typeof item.location !== "string" &&
+        item.location.latitude &&
+        item.location.longitude ? (
+          <Marker
+            key={item.id}
+            icon={customIcon}
+            position={[item.location.latitude, item.location.longitude]}
+          >
+            <Popup>
+              <strong>{item.title}</strong>
+              <br />
+              Contributed by user {item.createdBy?.id}
+            </Popup>
+          </Marker>
+        ) : null
+      )}
+    </MapContainer>  );
 };
 export default ImpactMap;
